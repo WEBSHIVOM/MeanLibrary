@@ -1,0 +1,65 @@
+
+
+<div class="container">
+  <h1>Add New Book</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <form (ngSubmit)="saveBook()" #bookForm="ngForm">
+          <mat-vertical-stepper [linear]="isLinear" #stepper>
+              <mat-step>
+        <div class="form-group">
+            <ng-template matStepLabel>ISBN</ng-template>
+          <input  placeholder="Enter ISBN" matInput  class="form-control" [(ngModel)]="book.isbn" name="isbn"  required>
+          <button class="matadate" mat-button matStepperNext>Next</button>
+        </div>
+        </mat-step>
+        <mat-step>
+        <div class="form-group">
+            <ng-template matStepLabel>Title</ng-template>
+          <input placeholder="Enter Title" matInput class="form-control" [(ngModel)]="book.title" name="title" required>
+          <div class="matdate">
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+        </div>
+        </mat-step>
+        <mat-step>
+        <div class="form-group">
+            <ng-template matStepLabel>Author</ng-template>
+          <input placeholder="Enter Author" matInput class="form-control" [(ngModel)]="book.author" name="author" required>
+          <div class="matdate">
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+        </div></mat-step>
+      <mat-step>
+        <div class="form-group">
+            <ng-template matStepLabel>Published Year</ng-template>
+          <input placeholder="Enter Published Year" matInput  [matDatepicker]="picker" class="form-control" [(ngModel)]="book.published_year" name="published_year" required >
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+
+          <div class="matdate">
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+        </div>
+      </mat-step>
+      <mat-step>
+        <div class="form-group">
+            <ng-template matStepLabel>Publisher</ng-template>
+          <input placeholder="Enter Publisher Name" matInput class="form-control" [(ngModel)]="book.publisher" name="publisher" required>
+          <div >
+              <button class="matadate" type="submit" class="btn btn-success" [disabled]="!bookForm.form.valid">Save</button>
+          <button type="submit" class="btn btn-warning" routerLink="/" >Cancel</button>
+            </div>
+        </div>
+      </mat-step>
+        </mat-vertical-stepper>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+
