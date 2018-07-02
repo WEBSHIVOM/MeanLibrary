@@ -60,7 +60,7 @@ const appRoutes: Routes = [
 let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider("77735412130-rrf6ajjr0e6a8a9ro73ftd0f24nt0kr6.apps.googleusercontent.com") },
+    provider: new GoogleLoginProvider("client-id") },
     {
       id: FacebookLoginProvider.PROVIDER_ID,
       provider: new FacebookLoginProvider("Facebook-App-Id")
